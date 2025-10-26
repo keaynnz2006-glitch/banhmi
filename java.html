@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo Bánh Mì</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fff7e6;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #b35c00;
+    }
+
+    #image {
+      width: 80%;
+      height: 250px;
+      margin: 20px auto;
+      background-color: #f3e5ab;
+      border: 3px solid #b35c00;
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-size: cover;
+      background-position: center;
+      font-size: 20px;
+      color: #5d4037;
+      transition: all 0.4s ease;
+    }
+
+    .preview {
+      width: 150px;
+      height: 100px;
+      margin: 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s;
+      border: 2px solid #b35c00;
+      object-fit: cover;
+    }
+
+    .preview:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 10px #b35c00;
+    }
+  </style>
+</head>
+<body>
+  <h1>🍞 Bộ Sưu Tập Bánh Mì</h1>
+
+  <div id="image">
+    Di chuột vào một hình ảnh bên dưới để xem chi tiết!
+  </div>
+
+  <div>
+    <img class="preview"
+         src="https://assets.epicurious.com/photos/562e49d300392e9c31da8947/master/pass/EP_10212015_BanhMi-4.jpg"
+         alt="Baguette truyền thống"
+         onmouseover="update(this)" onmouseout="unDo()">
+
+    <img class="preview"
+         src="https://tse2.mm.bing.net/th/id/OIP.jgIpm5pZfAOt4INp-UKV5QHaGe?pid=Api&P=0&h=180"
+         alt="Sandwich đầy nhân"
+         onmouseover="update(this)" onmouseout="unDo()">
+
+    <img class="preview"
+         src="https://picsum.photos/seed/ciabatta/800/600"
+         alt="Bánh mì Ciabatta"
+         onmouseover="update(this)" onmouseout="unDo()">
+
+    <img class="preview"
+         src="https://static-images.vnncdn.net/files/publish/2022/5/13/cach-lam-banh-mi-bo-toi-thom-ngon-8551306c8c7f4b9a8565c1de854d249c.jpg"
+         
+         alt="Bánh Croissant bơ"
+         onmouseover="update(this)" onmouseout="unDo()">
+  </div>
+
+  <script>
+    function update(previewPic) {
+      let imgDiv = document.getElementById("image");
+      imgDiv.style.backgroundImage = `url('${previewPic.src}')`;
+      imgDiv.innerHTML = previewPic.alt;
+    }
+
+    function unDo() {
+      let imgDiv = document.getElementById("image");
+      imgDiv.style.backgroundImage = "none";
+      imgDiv.innerHTML = "Di chuột vào một hình ảnh bên dưới để xem chi tiết!";
+    }
+  </script>
+</body>
+</html>
