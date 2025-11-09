@@ -3,51 +3,78 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Demo Bánh Mì</title>
+  <title>Bộ Sưu Tập Bánh Mì</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #fff7e6;
       text-align: center;
       padding: 20px;
+      margin: 0;
     }
 
     h1 {
       color: #b35c00;
+      margin-bottom: 30px;
     }
 
+    /* Khung ảnh chính */
     #image {
-      width: 80%;
-      height: 250px;
-      margin: 20px auto;
+      width: 90%;
+      max-width: 800px;
+      height: 300px;
+      margin: 0 auto 30px auto;
       background-color: #f3e5ab;
       border: 3px solid #b35c00;
-      border-radius: 15px;
+      border-radius: 20px;
       display: flex;
       align-items: center;
       justify-content: center;
       background-size: cover;
       background-position: center;
-      font-size: 20px;
+      font-size: 22px;
       color: #5d4037;
-      transition: all 0.4s ease;
+      transition: all 0.5s ease;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    /* Container ảnh preview */
+    .preview-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+      width: 90%;
+      max-width: 900px;
+      margin: 0 auto;
     }
 
     .preview {
-      width: 150px;
-      height: 100px;
-      margin: 10px;
-      border-radius: 10px;
+      width: 100%;
+      height: 120px;
+      border-radius: 15px;
       cursor: pointer;
-      transition: transform 0.3s;
-      border: 2px solid #b35c00;
       object-fit: cover;
+      transition: transform 0.3s, box-shadow 0.3s;
+      border: 2px solid #b35c00;
     }
 
     .preview:hover {
       transform: scale(1.1);
-      box-shadow: 0 0 10px #b35c00;
+      box-shadow: 0 0 15px #b35c00;
     }
+
+    /* Responsive khung chính */
+    @media all and (max-width: 600px) {
+      #image {
+        height: 220px;
+        font-size: 18px;
+      }
+
+      .preview {
+        height: 100px;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -57,7 +84,7 @@
     Di chuột vào một hình ảnh bên dưới để xem chi tiết!
   </div>
 
-  <div>
+  <div class="preview-container">
     <img class="preview"
          src="https://assets.epicurious.com/photos/562e49d300392e9c31da8947/master/pass/EP_10212015_BanhMi-4.jpg"
          alt="Baguette truyền thống"
@@ -75,7 +102,6 @@
 
     <img class="preview"
          src="https://static-images.vnncdn.net/files/publish/2022/5/13/cach-lam-banh-mi-bo-toi-thom-ngon-8551306c8c7f4b9a8565c1de854d249c.jpg"
-         
          alt="Bánh Croissant bơ"
          onmouseover="update(this)" onmouseout="unDo()">
   </div>
